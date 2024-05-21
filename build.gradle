@@ -481,12 +481,12 @@ rat {
 distributions {
 
     def date = new Date().format('yyyyMMdd')
-    String root = "xmlbeans-${XMLBeansVersion}/"
+    String root = "apache-xmlbeans-${XMLBeansVersion}/"
 
     bin {
 
         // for this to work, project.version shouldn't be defined
-        distributionBaseName = "xmlbeans-bin-${XMLBeansVersion}-${date}"
+        distributionBaseName = "apache-xmlbeans-bin-${XMLBeansVersion}-${date}"
 
         contents {
             from('build/libs') {
@@ -524,7 +524,7 @@ distributions {
         }
     }
     src {
-        distributionBaseName = "xmlbeans-src-${XMLBeansVersion}-${date}"
+        distributionBaseName = "apache-xmlbeans-src-${XMLBeansVersion}-${date}"
         contents {
             from(".") {
                 exclude 'tmp'

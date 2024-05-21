@@ -731,20 +731,20 @@
             <format property="tstamp.dist" pattern="yyyyMMdd"/>
         </tstamp>
 
-        <property name="prefix" value="xmlbeans-${version.base}"/>
+        <property name="prefix" value="apache-xmlbeans-${version.base}"/>
 
-        <zip destfile="build/xmlbeans-src-${version.base}-${tstamp.dist}.zip" update="false">
+        <zip destfile="build/apache-xmlbeans-src-${version.base}-${tstamp.dist}.zip" update="false">
             <zipfileset dir="." excludes="build/**,tmp/**,.idea/**,bin/**,lib/**,/src/main/shell/**,.settings/**,.project,build.javacheck.xml,release-guide.txt" prefix="${prefix}"/>
         	<zipfileset dir="src/main/shell" prefix="${prefix}/bin" />
             <zipfileset dir="build/javadocs" prefix="${prefix}/javadocs" />
         </zip>
-        <tar destfile="build/xmlbeans-src-${version.base}-${tstamp.dist}.tgz" compression="gzip" longfile="posix">
+        <tar destfile="build/apache-xmlbeans-src-${version.base}-${tstamp.dist}.tgz" compression="gzip" longfile="posix">
             <tarfileset dir="." excludes="build/**,tmp/**,.idea/**,bin/**,lib/**,/src/main/shell/**,.settings/**,.project,build.javacheck.xml,release-guide.txt" prefix="${prefix}"/>
         	<tarfileset dir="src/main/shell" prefix="${prefix}/bin" />
             <tarfileset dir="build/javadocs" prefix="${prefix}/javadocs" />
         </tar>
 
-        <zip destfile="build/xmlbeans-bin-${version.base}-${tstamp.dist}.zip" update="false">
+        <zip destfile="build/apache-xmlbeans-bin-${version.base}-${tstamp.dist}.zip" update="false">
             <zipfileset dir="." includes="LICENSE-binary.txt,NOTICE-binary.txt" prefix="${prefix}"/>
             <zipfileset dir="samples" includes="Any/**,DateTime/**,MixedContent/**,OrderMatters/**,SchemaEnum/**,Validation/**,XQueryXPath/**,XsdConfig/**" prefix="${prefix}/samples"/>
             <zipfileset dir="src/main/shell" prefix="${prefix}/bin"/>
@@ -764,7 +764,7 @@
                 <include name="log4j-*.jar"/>
             </zipfileset>
         </zip>
-        <tar destfile="build/xmlbeans-bin-${version.base}-${tstamp.dist}.tgz" compression="gzip" longfile="posix">
+        <tar destfile="build/apache-xmlbeans-bin-${version.base}-${tstamp.dist}.tgz" compression="gzip" longfile="posix">
             <tarfileset dir="." includes="LICENSE-binary.txt,NOTICE-binary.txt" prefix="${prefix}"/>
             <tarfileset dir="samples" includes="Any/**,DateTime/**,MixedContent/**,OrderMatters/**,SchemaEnum/**,Validation/**,XQueryXPath/**,XsdConfig/**" prefix="${prefix}/samples"/>
             <tarfileset dir="src/main/shell" prefix="${prefix}/bin"/>
