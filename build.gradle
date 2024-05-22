@@ -70,6 +70,7 @@ ext {
     log4jVersion = '2.23.1'
     saxonVersion = '12.4'
     androidSdkMinimum = '26'
+    jdkVersion = (project.properties['jdkVersion'] ?: '8') as int
 }
 
 def testSchemas =  [
@@ -304,8 +305,10 @@ compileTestJava {
 
 task compileJava9(type: JavaCompile) {
     dependsOn 'compileJava'
-    onlyIf { JavaVersion.current() != JavaVersion.VERSION_1_8 }
 
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(Math.max(11, jdkVersion))
+    }
     sourceCompatibility = 9
     targetCompatibility = 9
     destinationDirectory = file('build/classes/java9/main/META-INF/versions/9')
@@ -316,16 +319,6 @@ task compileJava9(type: JavaCompile) {
         '--module-path',  files(sourceSets.main.output.files + configurations.java9.asFileTree.files).asPath
     ]
 }
-
-task cacheJava9(type: Copy) {
-    dependsOn 'compileJava9'
-    onlyIf { JavaVersion.current() != JavaVersion.VERSION_1_8 }
-
-    from(file('build/classes/java9/main/META-INF/versions/9'))
-    into('src/main/java9')
-}
-
-
 
 processTestResources {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
@@ -354,8 +347,7 @@ idea {
 }
 
 jar {
-    dependsOn 'cacheJava9'
-
+    dependsOn compileJava9
     archiveBaseName = "xmlbeans-${XMLBeansVersion}"
 
     from(project.rootDir) {
@@ -370,13 +362,6 @@ jar {
         exclude '**/*.java'
         into 'META-INF/maven'
         filter { line -> line.replaceAll('@VERSION@', XMLBeansVersion) }
-    }
-
-    if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
-        from('src/main/java9') {
-            include '**/*.class'
-            into 'META-INF/versions/9'
-        }
     }
 
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
@@ -440,7 +425,6 @@ def buildInfoArtifact = artifacts.add('genresources', buildInfoFile.get().asFile
 }
 
 rat {
-    dependsOn 'cacheJava9'
 
     excludes = [
         'tmp',
@@ -633,7 +617,6 @@ generatePomFileForPOIPublication.destination = "build/dist/maven/${project.archi
 [binDistTar, binDistZip]*.dependsOn 'jar'
 [binDistTar, binDistZip]*.dependsOn 'export4anttest'
 [binDistTar, binDistZip]*.dependsOn 'cyclonedxBom'
-[srcDistTar, srcDistZip]*.dependsOn 'cacheJava9'
 [srcDistTar, srcDistZip]*.dependsOn 'cyclonedxBom'
 [srcDistTar, srcDistZip]*.dependsOn 'javadoc'
 
