@@ -95,10 +95,10 @@ svn pd 'svn:executable' $(find -name .svn -prune -or -type f ! -name \*.sh \
      - xmlbeans-VERSION.jar
      - xmlbeans-VERSION-javadoc.jar
      - xmlbeans-VERSION-sources.jar
-     - xmlbeans-bin-VERSION-DATE.zip
-     - xmlbeans-bin-VERSION-DATE.tgz
-     - xmlbeans-src-VERSION-DATE.zip
-     - xmlbeans-src-VERSION-DATE.tgz
+     - apache-xmlbeans-bin-VERSION-DATE.zip
+     - apache-xmlbeans-bin-VERSION-DATE.tgz
+     - apache-xmlbeans-src-VERSION-DATE.zip
+     - apache-xmlbeans-src-VERSION-DATE.tgz
 
   2. Grab the current deployed POM, and edit the version # and anything else that has changed:
      https://repository.apache.org/service/local/repo_groups/public/content/org/apache/xmlbeans/xmlbeans/VERSION/xmlbeans-VERSION.pom
