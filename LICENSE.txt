@@ -200,13 +200,29 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
+------------------
 The XMLBeans Source Release bundles the Gradle Wrapper. (https://docs.gradle.org/current/userguide/gradle_wrapper.html)
 This is released under the Apache License, v2.0.
 Copyright © 2015-2021 the original authors.
 
+------------------
 The wrapper.gradle file was developed by the Apache Kafka project and is released under the Apache License, v2.0.
 
+------------------
 ExceptionUtils is derived from `scala.util.control.NonFatal` in scala-library
 which was released under the Apache 2.0 license.
 Copyright (c) 2002-2023 EPFL
 Copyright (c) 2011-2023 Lightbend, Inc.
+
+------------------
+A number of test cases in the XMLBeans test suite are derived from the W3C XML Schema Test Suite.
+Java source files in src/test/java/org/w3c and XML/DTD files in src/test/resources/xbean/dom/W3C.
+
+Copyright (c) 2001-2003 World Wide Web Consortium, (Massachusetts Institute
+of Technology, Institut National de Recherche en Informatique et en
+Automatique, Keio University). All Rights Reserved. This program is
+distributed under the W3C's Software Intellectual Property License. This
+program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See W3C License
+http://www.w3.org/Consortium/Legal/ for more details.
