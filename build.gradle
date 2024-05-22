@@ -445,7 +445,6 @@ rat {
         '**/zvon*.xml',
         '**/xmldsig-core-schema.xsd',
         'src/test/resources/xbean/xmlobject/japanese',
-        'src/test/resources/xbean/compile/scomp/j2ee',
         'src/test/resources/xbean/dom/W3C/level2/core/files',
         'src/test/resources/xbean/xmlobject/soap-envelope.xsd',
         'src/test/resources/xbean/xmlobject/soap12-encoding.xsd',
