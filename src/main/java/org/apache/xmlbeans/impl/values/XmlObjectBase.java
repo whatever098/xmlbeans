@@ -2611,7 +2611,7 @@ public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlO
                 }
                 while (xc.toNextSibling(elementName));
             }
-            if (result.size() == 0) {
+            if (result.isEmpty()) {
                 return EMPTY_RESULT;
             } else {
                 return result.toArray(EMPTY_RESULT);
@@ -2651,7 +2651,7 @@ public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlO
                 }
                 while (xc.toNextSibling());
             }
-            if (result.size() == 0) {
+            if (result.isEmpty()) {
                 return EMPTY_RESULT;
             } else {
                 return result.toArray(EMPTY_RESULT);
@@ -2713,7 +2713,7 @@ public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlO
                 while (xc.toNextAttribute());
             }
 
-            if (result.size() == 0) {
+            if (result.isEmpty()) {
                 return EMPTY_RESULT;
             } else {
                 return result.toArray(EMPTY_RESULT);

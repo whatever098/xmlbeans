@@ -102,7 +102,7 @@ public class SchemaTypeLoaderImpl extends SchemaTypeLoaderBase {
 
             List<SoftReference<SchemaTypeLoaderImpl>> a = _cachedTypeSystems.get();
             // Make sure this entry is at the top of the stack
-            if (a.size() > 0) {
+            if (!a.isEmpty()) {
                 SoftReference<SchemaTypeLoaderImpl> t = a.get(0);
                 a.set(0, new SoftReference<>((SchemaTypeLoaderImpl) stl));
                 a.add(t);

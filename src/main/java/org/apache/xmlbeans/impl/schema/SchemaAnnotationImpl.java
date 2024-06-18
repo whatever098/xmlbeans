@@ -140,7 +140,7 @@ public class SchemaAnnotationImpl implements SchemaAnnotation
         addNoSchemaAttributes(elem, attrArray);
         if (ann == null)
         {
-            if (attrArray.size() == 0)
+            if (attrArray.isEmpty())
                 return null; // no annotation present
             // no annotation element present, but attributes on the enclosing
             // element present, so we have an annotation component

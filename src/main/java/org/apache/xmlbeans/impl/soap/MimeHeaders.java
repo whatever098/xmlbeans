@@ -144,7 +144,7 @@ public class MimeHeaders {
             }
         }
 
-        if (vector.size() == 0) {
+        if (vector.isEmpty()) {
             return null;
         } else {
             String[] as = new String[vector.size()];

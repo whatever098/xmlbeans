@@ -162,7 +162,7 @@ public class FilerImpl implements Filer {
                 Diff.readersAsText(sReader, "<generated>", fReader, _file.getName(), diffs);
             }
 
-            if (diffs.size() > 0) {
+            if (!diffs.isEmpty()) {
                 // Diffs encountered, replace the file on disk with text from the buffer
                 try (Writer fw = writerForFile(_file)) {
                     fw.write(str);

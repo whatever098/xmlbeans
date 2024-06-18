@@ -337,7 +337,7 @@ public class StscJavaizer {
             // since they don't have another outer class
             ArrayList<SchemaType> list = new ArrayList<>();
             addAnonymousTypesFromRedefinition(outerType, list);
-            if (list.size() > 0) {
+            if (!list.isEmpty()) {
                 SchemaType[] temp = new SchemaType[nrOfAnonTypes + list.size()];
                 list.toArray(temp);
                 System.arraycopy(anonymousTypes, 0, temp, list.size(), nrOfAnonTypes);

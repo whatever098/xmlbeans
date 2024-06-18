@@ -101,7 +101,7 @@ public class XMLBean extends MatchingTask {
     public void execute() throws BuildException {
         /* VALIDATION */
         //required
-        if (schemas.size() == 0
+        if (schemas.isEmpty()
             && schema == null
             && fileset.getDir(getProject()) == null) {
             String msg = "The 'schema' or 'dir' attribute or a nested fileset is required.";
@@ -146,7 +146,7 @@ public class XMLBean extends MatchingTask {
         Set<File> xsdList = _extRouter.get(XSD);
         Set<File> wsdlList = _extRouter.get(WSDL);
 
-        if (xsdList.size() + wsdlList.size() == 0) {
+        if (xsdList.isEmpty() && wsdlList.isEmpty()) {
             log("Could not find any xsd or wsdl files to process.", Project.MSG_WARN);
             return;
         }

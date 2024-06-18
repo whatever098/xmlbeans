@@ -176,14 +176,14 @@ public class FactorImports {
             }
         }
 
-        if (schemaDocs.size() == 0) {
+        if (schemaDocs.isEmpty()) {
             System.out.println("No schema files found.");
             System.exit(0);
             return;
         }
 
-        if (dupeTypeNames.size() + dupeElementNames.size() + dupeAttributeNames.size() +
-            dupeModelGroupNames.size() + dupeAttrGroupNames.size() == 0) {
+        if (dupeTypeNames.isEmpty() && dupeElementNames.isEmpty() && dupeAttributeNames.isEmpty() &&
+            dupeModelGroupNames.isEmpty() && dupeAttrGroupNames.isEmpty()) {
             System.out.println("No duplicate names found.");
             System.exit(0);
             return;
@@ -197,7 +197,7 @@ public class FactorImports {
             SchemaDocument commonDoc = SchemaDocument.Factory.parse(
                 "<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'/>"
             );
-            if (namespace.length() > 0) {
+            if (!namespace.isEmpty()) {
                 commonDoc.getSchema().setTargetNamespace(namespace);
             }
             commonDoc.getSchema().setElementFormDefault(FormChoice.QUALIFIED);

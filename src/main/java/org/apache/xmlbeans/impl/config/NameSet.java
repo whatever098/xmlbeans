@@ -51,7 +51,7 @@ public class NameSet {
     }
 
     static NameSet newInstance(boolean isFinite, Set<String> finiteSet) {
-        if (finiteSet.size() == 0) {
+        if (finiteSet.isEmpty()) {
             if (isFinite) {
                 return NameSet.EMPTY;
             } else {

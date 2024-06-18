@@ -500,7 +500,7 @@ public class NameUtil {
                 result.set(result.size() - 1, processFilename(result.get(result.size() - 1)));
             }
 
-            if (result.size() > 0) {
+            if (!result.isEmpty()) {
                 List<String> splitdns = splitDNS(result.get(0));
                 result.remove(0);
                 result.addAll(0, splitdns);
@@ -575,7 +575,7 @@ public class NameUtil {
         StringBuilder buf = new StringBuilder();
         List<String> words = splitWords(xml_name, useJaxRpcRules);
 
-        if (words.size() > 0) {
+        if (!words.isEmpty()) {
             if (!Character.isJavaIdentifierStart(words.get(0).charAt(0))) {
                 buf.append("X");
             }
@@ -608,7 +608,7 @@ public class NameUtil {
         StringBuilder buf = new StringBuilder();
         List<String> words = splitWords(xml_name, useJaxRpcRules);
 
-        if (words.size() > 0) {
+        if (!words.isEmpty()) {
             String first = words.get(0).toLowerCase(Locale.ROOT);
             char f = first.charAt(0);
             if (!Character.isJavaIdentifierStart(f) && fixGeneratedName) {

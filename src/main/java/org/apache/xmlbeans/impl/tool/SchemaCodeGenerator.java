@@ -178,7 +178,7 @@ public class SchemaCodeGenerator {
                 triesRemaining -= 1;
             }
 
-            if (triesRemaining <= 0 || retry.size() == 0) // done?
+            if (triesRemaining <= 0 || retry.isEmpty()) // done?
             {
                 triesRemaining = 0;
             } else {

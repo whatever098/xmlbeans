@@ -426,7 +426,7 @@ public class StscChecker {
                         // we only add the last error, because isParticleValidRestriction may add errors
                         // to the collection that it later changes its mind about, or it may (inadvertently)
                         // forget to describe an error into the collection....
-                        if (errors.size() == 0) {
+                        if (errors.isEmpty()) {
                             state.error(XmlErrorCodes.COMPLEX_TYPE_RESTRICTION$ELEMENT_OR_MIXED_AND_VALID, null, location);
                         } else {
                             state.getErrorListener().add(errors.get(errors.size() - 1));
@@ -900,7 +900,7 @@ public class StscChecker {
                         particles.add(baseParticleArray[k]);
                     }
                 }
-                if (particles.size() > 0) {
+                if (!particles.isEmpty()) {
                     recurseValid = false;
                     errors.add(XmlError.forObject(XmlErrorCodes.PARTICLE_DERIVATION_RECURSE$UNMAPPED_ARE_EMPTIABLE,
                         new Object[]{printParticle(baseModel), printParticle(derivedModel), printParticles(particles)}, context));

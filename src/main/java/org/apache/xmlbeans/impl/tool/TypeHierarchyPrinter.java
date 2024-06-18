@@ -228,9 +228,9 @@ public class TypeHierarchyPrinter
             {
                 System.out.println(spaces + "+-" + QNameHelper.readable(sType, prefixes) + notes(sType));
                 Collection<SchemaType> children = childTypes.get(sType);
-                if (children != null && children.size() > 0)
+                if (children != null && !children.isEmpty())
                 {
-                    spaces.append(typesToPrint.size() == 0 || typesToPrint.get(typesToPrint.size() - 1) == null ? "  " : "| ");
+                    spaces.append(typesToPrint.isEmpty() || typesToPrint.get(typesToPrint.size() - 1) == null ? "  " : "| ");
                     typesToPrint.add(null);
                     typesToPrint.addAll(children);
                 }

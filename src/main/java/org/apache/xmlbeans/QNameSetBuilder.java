@@ -267,7 +267,7 @@ public class QNameSetBuilder implements QNameSetSpecification, java.io.Serializa
      */
     public boolean isAll()
     {
-        return _inverted && _includedURIs.size() == 0 && _includedQNames.size() == 0;
+        return _inverted && _includedURIs.isEmpty() && _includedQNames.isEmpty();
     }
 
     /**
@@ -275,7 +275,7 @@ public class QNameSetBuilder implements QNameSetSpecification, java.io.Serializa
      */
     public boolean isEmpty()
     {
-        return !_inverted && _includedURIs.size() == 0 && _includedQNames.size() == 0;
+        return !_inverted && _includedURIs.isEmpty() && _includedQNames.isEmpty();
     }
 
     /**
@@ -359,7 +359,7 @@ public class QNameSetBuilder implements QNameSetSpecification, java.io.Serializa
                 return false;
         }
 
-        if (includeURIs.size() > 0)
+        if (!includeURIs.isEmpty())
             for (Iterator<QName> i = set2.includedQNamesInExcludedURIs().iterator(); i.hasNext(); )
         {
             if (set1.contains(i.next()))

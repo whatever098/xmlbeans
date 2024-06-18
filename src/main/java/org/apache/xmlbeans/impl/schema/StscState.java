@@ -1151,7 +1151,7 @@ public class StscState {
     public static void end() {
         StscStack stscStack = tl_stscStack.get();
         stscStack.pop();
-        if (stscStack.stack.size() == 0) {
+        if (stscStack.stack.isEmpty()) {
             // this is required to release all the references in this classloader
             tl_stscStack.remove();
         }

@@ -755,9 +755,9 @@ public final class Validator
             }
         }
 
-        List<QName> names = (expectedNames.size() > 0 ? expectedNames : optionalNames);
+        List<QName> names = expectedNames.isEmpty() ? optionalNames : expectedNames;
 
-        if (names.size() > 0) {
+        if (!names.isEmpty()) {
             String buf = names.stream().map(QNameHelper::pretty).collect(Collectors.joining(" "));
             emitFieldError(event, XmlErrorCodes.ELEM_COMPLEX_TYPE_LOCALLY_VALID$EXPECTED_DIFFERENT_ELEMENT,
                 new Object[]{names.size(), buf, QNameHelper.pretty(qName)},
@@ -787,9 +787,9 @@ public final class Validator
             }
         }
 
-        List<QName> names = (expectedNames.size() > 0 ? expectedNames : optionalNames);
+        List<QName> names = expectedNames.isEmpty() ? optionalNames : expectedNames;
 
-        if (names.size() > 0) {
+        if (!names.isEmpty()) {
             String buf = names.stream().map(QNameHelper::pretty).collect(Collectors.joining(" "));
 
             emitFieldError(event, XmlErrorCodes.ELEM_COMPLEX_TYPE_LOCALLY_VALID$MISSING_ELEMENT,

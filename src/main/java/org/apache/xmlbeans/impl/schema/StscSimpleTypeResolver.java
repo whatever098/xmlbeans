@@ -245,7 +245,7 @@ public class StscSimpleTypeResolver {
 
         List<SchemaTypeImpl> memberImplList = new ArrayList<>();
 
-        if (simpleTypes.length == 0 && (memberTypes == null || memberTypes.size() == 0)) {
+        if (simpleTypes.length == 0 && (memberTypes == null || memberTypes.isEmpty())) {
             state.error(XmlErrorCodes.SCHEMA_SIMPLE_TYPE$UNION_HAS_MEMBER_TYPES_OR_SIMPLE_TYPES, null, parseUnion);
             // recovery: oh well, zero member types is fine.
         }

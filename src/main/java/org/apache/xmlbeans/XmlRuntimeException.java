@@ -91,7 +91,7 @@ public class XmlRuntimeException extends RuntimeException
      */ 
     public XmlError getError ( )
     {
-        if (_errors == null || _errors.size() == 0)
+        if (_errors == null || _errors.isEmpty())
             return null;
 
         return _errors.get( 0 );

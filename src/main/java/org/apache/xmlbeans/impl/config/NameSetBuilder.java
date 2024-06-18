@@ -54,7 +54,7 @@ public class NameSetBuilder
      * @return created NameSet
      */
     public NameSet toNameSet() {
-        if (_finiteSet.size() == 0) {
+        if (_finiteSet.isEmpty()) {
             if (_isFinite) {
                 return NameSet.EMPTY;
             } else {

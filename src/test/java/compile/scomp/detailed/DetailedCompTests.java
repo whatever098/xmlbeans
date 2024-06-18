@@ -217,7 +217,7 @@ public class DetailedCompTests {
         parsedSchema[0] = SchemaDocument.Factory.parse(schema);
         errors.clear();
         typeSystem = XmlBeans.compileXsd(parsedSchema, null, opts);
-        assertTrue(errors.size() == 0, "Expected no errors or warnings");
+        assertTrue(errors.isEmpty(), "Expected no errors or warnings");
         SchemaType docType = typeSystem.findDocumentType(new QName("", "root"));
         SchemaType type = docType.getElementProperty(new QName("", "root")).getType().
             getAttributeProperty(new QName("", "att")).getType();
@@ -268,7 +268,7 @@ public class DetailedCompTests {
         assertEquals(docType, parsedDoc.schemaType(), "Did not find the root element in the Schema");
         errors.clear();
         parsedDoc.validate(opts);
-        assertTrue(errors.size() == 0, "Expected no validation errors");
+        assertTrue(errors.isEmpty(), "Expected no validation errors");
 //        System.out.println(xml);
     }
 }

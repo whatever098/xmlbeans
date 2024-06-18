@@ -1638,7 +1638,7 @@ public class MarshalTests extends TestCase
             inform("doc3-ERROR: " + xmlError);
         }
 
-        Assert.assertTrue(errors.size() > 0);
+        Assert.assertFalse(errors.isEmpty());
 
     }
 

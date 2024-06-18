@@ -154,7 +154,7 @@ public class RussianDollStrategy
             (commentBuff.length() == 0 ? comment : commentBuff.insert(0, comment).toString()));
         element.setComment(commnetStr);
 
-        if (children.size() > 0) {
+        if (!children.isEmpty()) {
             // complex content
             if (collapsedText.length() > 0) {
                 elemType.setContentType(Type.COMPLEX_TYPE_MIXED_CONTENT);
@@ -169,7 +169,7 @@ public class RussianDollStrategy
             try (XmlCursor xcForNamespaces = xc.newCursor()) {
                 xcForNamespaces.toParent();
 
-                if (attributes.size() > 0) {
+                if (!attributes.isEmpty()) {
                     elemType.setContentType(Type.COMPLEX_TYPE_SIMPLE_CONTENT);
 
                     Type extendedType = Type.createNamedType(

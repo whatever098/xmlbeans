@@ -741,7 +741,7 @@ class Token implements java.io.Serializable {
     private static final int NONBMP_BLOCK_START = 84;
 
     static protected RangeToken getRange(String name, boolean positive) {
-        if (Token.categories.size() == 0) {
+        if (Token.categories.isEmpty()) {
             synchronized (Token.categories) {
                 Token[] ranges = new Token[Token.categoryNames.length];
                 for (int i = 0;  i < ranges.length;  i ++) {

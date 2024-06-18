@@ -76,7 +76,7 @@ public class InstanceValidationTests {
 
         List<XmlError> errors = performValidation(schemas, invalid);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         for (Object error : errors) {
             XmlValidationError xmlValError = (XmlValidationError) error;
@@ -137,7 +137,7 @@ public class InstanceValidationTests {
                              "</empRecords>";
         List<XmlError> errors = performValidation(schemas, xmlInstance);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         for (Object error : errors) {
             XmlValidationError xmlValError = (XmlValidationError) error;
@@ -199,7 +199,7 @@ public class InstanceValidationTests {
 
         List<XmlError> errors = performValidation(schemas, xmlInstance);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         Iterator<XmlError> it = errors.iterator();
         assertTrue(it.hasNext());
@@ -331,7 +331,7 @@ public class InstanceValidationTests {
                              "</empRecords>";
         List<XmlError> errors = performValidation(schemas, xmlInstance);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         for (Object error : errors) {
             XmlValidationError xmlValError = (XmlValidationError) error;
@@ -372,7 +372,7 @@ public class InstanceValidationTests {
 
         List<XmlError> errors = performValidation(schemas, invalid);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         for (XmlError error : errors) {
             assertEquals(error.getMessage(), "Expected element 'a@http://openuri.org/bobschema' instead of 'q@http://openuri.org/bobschema' here in element foo@http://openuri.org/bobschema");
@@ -431,7 +431,7 @@ public class InstanceValidationTests {
             "</empRecords>";
         List<XmlError> errors = performValidation(schemas, xmlInstance);
         assertNotNull(errors);
-        assertTrue(errors.size() > 0);
+        assertFalse(errors.isEmpty());
 
         for (XmlError error : errors) {
             assertEquals(error.getMessage(), "Expected attribute: employee in element person");

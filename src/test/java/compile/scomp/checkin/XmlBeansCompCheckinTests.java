@@ -65,9 +65,7 @@ public class XmlBeansCompCheckinTests {
 
     @AfterEach
     public void tearDown() throws Exception {
-        if (xm_errors.size() > 0) {
-            xm_errors.clear();
-        }
+        xm_errors.clear();
     }
 
     @Test

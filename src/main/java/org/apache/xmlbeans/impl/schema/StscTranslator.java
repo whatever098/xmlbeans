@@ -105,7 +105,7 @@ public class StscTranslator {
                     }
                 }
 
-                SchemaTypeImpl t = translateGlobalComplexType(type, targetNamespace, chameleon, redefChain.size() > 0);
+                SchemaTypeImpl t = translateGlobalComplexType(type, targetNamespace, chameleon, !redefChain.isEmpty());
                 state.addGlobalType(t, null);
                 SchemaTypeImpl r;
                 // 2. Traverse the List built in step 1 in reverse and add all the
@@ -135,7 +135,7 @@ public class StscTranslator {
                     }
                 }
 
-                SchemaTypeImpl t = translateGlobalSimpleType(type, targetNamespace, chameleon, redefChain.size() > 0);
+                SchemaTypeImpl t = translateGlobalSimpleType(type, targetNamespace, chameleon, !redefChain.isEmpty());
                 state.addGlobalType(t, null);
                 SchemaTypeImpl r;
                 for (int k = redefChain.size() - 1; k >= 0; k--) {
@@ -172,7 +172,7 @@ public class StscTranslator {
                     }
                 }
 
-                SchemaModelGroupImpl g = translateModelGroup(group, targetNamespace, chameleon, redefChain.size() > 0);
+                SchemaModelGroupImpl g = translateModelGroup(group, targetNamespace, chameleon, !redefChain.isEmpty());
                 state.addModelGroup(g, null);
                 SchemaModelGroupImpl r;
                 for (int k = redefChain.size() - 1; k >= 0; k--) {
@@ -199,7 +199,7 @@ public class StscTranslator {
                     }
                 }
 
-                SchemaAttributeGroupImpl g = translateAttributeGroup(group, targetNamespace, chameleon, redefChain.size() > 0);
+                SchemaAttributeGroupImpl g = translateAttributeGroup(group, targetNamespace, chameleon, !redefChain.isEmpty());
                 state.addAttributeGroup(g, null);
                 SchemaAttributeGroupImpl r;
                 for (int k = redefChain.size() - 1; k >= 0; k--) {

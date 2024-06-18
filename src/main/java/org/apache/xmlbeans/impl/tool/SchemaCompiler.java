@@ -203,7 +203,7 @@ public class SchemaCompiler {
             }
         }
 
-        if (extensions.size() > 0) {
+        if (!extensions.isEmpty()) {
             // example: -extensionParms typeMappingFileLocation=d:\types
             if (cl.getOpt("extensionParms") != null) {
                 Extension e = extensions.get(0);
@@ -781,7 +781,7 @@ public class SchemaCompiler {
     }
 
     private static void runExtensions(List<Extension> extensions, SchemaTypeSystem system, File classesDir) {
-        if (extensions != null && extensions.size() > 0) {
+        if (extensions != null && !extensions.isEmpty()) {
             SchemaCompilerExtension sce;
             Iterator<Extension> i = extensions.iterator();
             Map<String, String> extensionParms;
