@@ -107,7 +107,7 @@ public class XmlOptions implements java.io.Serializable {
         SAVE_CDATA_LENGTH_THRESHOLD,
         SAVE_CDATA_ENTITY_COUNT_THRESHOLD,
         SAVE_SAX_NO_NSDECLS_IN_ATTRIBUTES,
-        SAVE_EXTRA_ENAMESPACES,
+        SAVE_EXTRA_NAMESPACES,
         LOAD_REPLACE_DOCUMENT_ELEMENT,
         LOAD_STRIP_WHITESPACE,
         LOAD_STRIP_COMMENTS,
@@ -158,8 +158,7 @@ public class XmlOptions implements java.io.Serializable {
         XPATH_USE_SAXON,
         XPATH_USE_XMLBEANS,
         ATTRIBUTE_VALIDATION_COMPAT_MODE,
-        SOURCE_CODE_ENCODING,
-        USE_SHORT_JAVA_NAME
+        USE_JAVA_SHORT_NAME
     }
 
 
@@ -458,12 +457,12 @@ public class XmlOptions implements java.io.Serializable {
      * @see XmlTokenSource#xmlText(XmlOptions)
      */
     public XmlOptions setSaveExtraNamespaces(Map<String, String> extraNamespaces) {
-        return set(XmlOptionsKeys.SAVE_EXTRA_ENAMESPACES, extraNamespaces);
+        return set(XmlOptionsKeys.SAVE_EXTRA_NAMESPACES, extraNamespaces);
     }
 
     @SuppressWarnings("unchecked")
     public Map<String, String> getSaveExtraNamespaces() {
-        return (Map<String, String>) get(XmlOptionsKeys.SAVE_EXTRA_ENAMESPACES);
+        return (Map<String, String>) get(XmlOptionsKeys.SAVE_EXTRA_NAMESPACES);
     }
 
     /**
@@ -1089,22 +1088,6 @@ public class XmlOptions implements java.io.Serializable {
     }
 
     /**
-     * If this option is set, then the schema compiler will use utf_8 to generate java source file
-     *
-     */
-    public XmlOptions setCompileSourceCodeEncoding () {
-        return setCompileSourceCodeEncoding (true);
-    }
-
-    public XmlOptions setCompileSourceCodeEncoding (boolean b) {
-        return set(XmlOptionsKeys.SOURCE_CODE_ENCODING, b);
-    }
-
-    public boolean isCompileSourceCodeEncoding () {
-        return hasOption(XmlOptionsKeys.SOURCE_CODE_ENCODING);
-    }
-
-    /**
      * If this option is set, then the schema compiler will use the java_short_name to generate file name
      *
      */
@@ -1113,11 +1096,11 @@ public class XmlOptions implements java.io.Serializable {
     }
 
     public XmlOptions setCompileUseShortJavaName(boolean b) {
-        return set(XmlOptionsKeys.USE_SHORT_JAVA_NAME, b);
+        return set(XmlOptionsKeys.USE_JAVA_SHORT_NAME, b);
     }
 
     public boolean isCompileUseShortJavaName() {
-        return hasOption(XmlOptionsKeys.USE_SHORT_JAVA_NAME);
+        return hasOption(XmlOptionsKeys.USE_JAVA_SHORT_NAME);
     }
     /**
      * If this option is set, then the schema compiler will permit and

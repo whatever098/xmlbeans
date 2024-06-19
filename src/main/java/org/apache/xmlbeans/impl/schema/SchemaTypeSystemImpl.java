@@ -163,8 +163,8 @@ public class SchemaTypeSystemImpl extends SchemaTypeLoaderBase implements Schema
     private Set<String> _namespaces;
 
     // the additional config option
-    private boolean _sourceCodeEncoding ;
-    private boolean _useShortName;
+    private String _sourceCodeEncoding ;
+    private boolean _useJavaShortName;
 
     static String nameToPathString(String nameForSystem) {
         nameForSystem = nameForSystem.replace('.', '/');
@@ -314,7 +314,7 @@ public class SchemaTypeSystemImpl extends SchemaTypeLoaderBase implements Schema
 
     void savePointersForComponents(SchemaComponent[] components, String dir) {
         for (SchemaComponent component : components) {
-            if(_useShortName) {
+            if(_useJavaShortName) {
                 String javaName = _localHandles.handleForComponent(component);
                 if (javaName != null && !javaName.isEmpty()) 
                 {
@@ -431,12 +431,12 @@ public class SchemaTypeSystemImpl extends SchemaTypeLoaderBase implements Schema
         return result;
     }
 
-    Boolean getSourceCodeEncoding (){
+    String getSourceCodeEncoding() {
         return _sourceCodeEncoding ;
     }
 
-    Boolean getUseShortName(){
-        return _useShortName;
+    Boolean isUseJavaShortName() {
+        return _useJavaShortName;
     }
 
     @SuppressWarnings("unchecked")
@@ -643,7 +643,7 @@ public class SchemaTypeSystemImpl extends SchemaTypeLoaderBase implements Schema
         _annotations = state.annotations();
         _namespaces = new HashSet<>(Arrays.asList(state.getNamespaces()));
         _containers = state.getContainerMap();
-        _useShortName = state.useShortName();
+        _useJavaShortName = state.useShortName();
         _sourceCodeEncoding  = state.sourceCodeEncoding();
         fixupContainers();
         // Checks that data in the containers matches the lookup maps
