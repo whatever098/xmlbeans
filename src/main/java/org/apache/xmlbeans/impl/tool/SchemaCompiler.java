@@ -100,13 +100,13 @@ public class SchemaCompiler {
         flags.add("noext");
         flags.add("srconly");
         flags.add("debug");
-        flags.add("sourcecodeencoding");
         flags.add("usejavashortname");
 
         Set<String> opts = new HashSet<>();
         opts.add("out");
         opts.add("name");
         opts.add("src");
+        opts.add("sourcecodeencoding");
         opts.add("d");
         opts.add("cp");
         opts.add("compiler");
