@@ -16,11 +16,11 @@
 
 <!-- build file -->
 <project name="xmlbeans-perf" default="usage">
-	
+
 	<target name="usage">
 		<echo>
 	Main Usage:
-	bootstrap - download and unzip benchmark jars - REQUIRED FOR BENCHMARKS 
+	bootstrap - download and unzip benchmark jars - REQUIRED FOR BENCHMARKS
 	[re]build.all - builds all schema jars and test classes
 	[re]build - builds test and tool classes only
 	[re]build.schema.jars - that's what it does :->
@@ -31,8 +31,8 @@
 	NOTE: clean.all does not call the following clean targets:
 	clean.bootstrap - delete downloaded benchmark jars
 	clean.parsers.bootstrap - delete unzipped parser files
-	
-	build.xmlbeans.perf - bootstrap, builds schema jars and tests classes for all XmlBeans releases 
+
+	build.xmlbeans.perf - bootstrap, builds schema jars and tests classes for all XmlBeans releases
 
 	Schema Builds:
 	svn.schema.jars - required for tools build and svn perf
@@ -113,7 +113,7 @@
 
 	<!-- jibx -->
 	<property name="jibx.zip" value="${jibx.dir}/${jibx.lib.name}"/>
-	
+
 	<!-- v1 -->
 	<property name="v1.zip" value="${v1.dir}/${v1.lib.name}"/>
 
@@ -127,7 +127,7 @@
 
 	<!-- parser test xml instances zip -->
 	<property name="parsers.zip" value="${test.case.dir}/parser_instances.zip" />
-	<property name="parsers-instances.dir" value="${test.case.dir}\xml" />	
+	<property name="parsers-instances.dir" value="${test.case.dir}\xml" />
 
 	<!-- user-defined schema jars for SOM runtime perf tests  -->
 	<property name="svn-purchase-order.jar" value="${schema.jar.build.dir}/svn-purchase-order.jar"/>
@@ -174,7 +174,7 @@
 		<pathelement path="${build.dir}"/>
 		<pathelement path="${perf-results.jar}"/>
 	</path>
-	
+
 	<path id="v1.classpath">
 		<fileset dir="${v1.dir}/xmlbeans-1.0.3/lib" includes="*.jar"/>
 		<pathelement path="${v1-purchase-order.jar}"/>
@@ -268,7 +268,7 @@
 
 	<!-- convenience schema jar build targets -->
 	<target name="build.schema.jars" depends="svn.schema.jars,v1.schema.jars,v2.schema.jars,jibx.schema.jars,castor.schema.jars,jaxb.schema.jars,jaxb2.schema.jars,parsers.schema.jars"/>
-	
+
 	<target name="clean.schema.jars">
 		<delete dir="${schema.jar.build.dir}"/>
 	</target>
@@ -328,7 +328,7 @@
 	</target>
 
 	<target name="parsers.bootstrap">
-		<echo message="Extracting xml instance files for parser tests"/>	
+		<echo message="Extracting xml instance files for parser tests"/>
 		<unzip src="${parsers.zip}" dest="${parsers-instances.dir}"/>
 
 	</target>
@@ -533,7 +533,7 @@
         <!--
 		<chmod file="${svn.xmlbeans.root}/bin/scomp" perm="755"/>
 		<exec	dir="${svn.temp.dir}"
-					executable="${scomp}" 
+					executable="${scomp}"
 					output="${svn.temp.dir}/scomp_output.txt">
 			<env key="XMLBEANS_HOME" value="${svn.xmlbeans.root}"/>
 			<arg line="-out ${jar.name}"/>
@@ -604,7 +604,7 @@
             <param name="xsd.name" value="non-primitives.xsd"/>
             <param name="jar.name" value="v2-non-primitives.jar"/>
         </antcall>
-	
+
     </target>
 
     <target name="v2.schema.build" depends="os.init">
@@ -797,7 +797,7 @@
 		<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
 			<classpath>
 				<fileset dir="${jaxb2.dir}/lib" includes="*.jar"/>
-			</classpath>		  		
+			</classpath>
 		</taskdef>
 
 		<xjc schema="${test.case.dir}/xsd/${xsd.name}" target="${jaxb2.temp.dir}" package="${ns}"/>
@@ -812,7 +812,7 @@
 			<arg line="${test.case.dir}/xsd/${xsd.name}"/>
 		</java>
 
-	
+
 		<javac srcdir="${jaxb2.temp.dir}"
 			destdir="${jaxb2.temp.dir}"
 			debug="on"
@@ -864,7 +864,7 @@
 		<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
 			<classpath>
 				<fileset dir="${jaxb2.dir}/lib" includes="*.jar"/>
-			</classpath>		  		
+			</classpath>
 		</taskdef>
 
 		<xjc schema="${test.case.dir}/xsd/${xsd.name}" target="${parsers.temp.dir}" package="${ns}"/>
