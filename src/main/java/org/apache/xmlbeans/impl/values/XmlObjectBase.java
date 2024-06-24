@@ -35,7 +35,6 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.IntFunction;
-import java.util.zip.ZipOutputStream;
 
 public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlObject, SimpleValue {
     public static final short MAJOR_VERSION_NUMBER = (short) 1; // for serialization
@@ -192,12 +191,6 @@ public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlO
         }
     }
 
-    public void save(ZipOutputStream zos, XmlOptions options) throws IOException {
-        try (XmlCursor cur = newCursorForce()) {
-            cur.save(zos, makeInnerOptions(options));
-        }
-    }
-
     public void save(Writer w, XmlOptions options) throws IOException {
         try (XmlCursor cur = newCursorForce()) {
             cur.save(w, makeInnerOptions(options));
@@ -214,10 +207,6 @@ public abstract class XmlObjectBase implements TypeStoreUser, Serializable, XmlO
 
     public void save(OutputStream os) throws IOException {
         save(os, null);
-    }
-
-    public void save(ZipOutputStream zos) throws IOException {
-        save(zos, null);
     }
 
     public void save(Writer w) throws IOException {

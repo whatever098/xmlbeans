@@ -22,7 +22,6 @@ import org.xml.sax.ext.LexicalHandler;
 
 import javax.xml.stream.XMLStreamReader;
 import java.io.*;
-import java.util.zip.ZipOutputStream;
 
 /**
  * Represents a holder of XML that can return an {@link XmlCursor}
@@ -170,14 +169,6 @@ public interface XmlTokenSource {
      * with the XML.
      */
     void save(OutputStream os) throws IOException;
-
-    /**
-     * Writes the XML represented by this source to the given zip output stream.
-     * This method will save the XML declaration, including encoding information,
-     * with the XML.
-     */
-    void save(ZipOutputStream os) throws IOException;
-
 
     /**
      * Writes the XML represented by this source to the given output.
@@ -344,13 +335,6 @@ public interface XmlTokenSource {
      * with the XML.
      */
     void save(OutputStream os, XmlOptions options) throws IOException;
-
-    /**
-     * Writes the XML represented by this source to the given zip output stream.
-     * This method will save the XML declaration, including encoding information,
-     * with the XML.
-     */
-    void save(ZipOutputStream os, XmlOptions options) throws IOException;
 
     /**
      * Writes the XML represented by this source to the given output.
